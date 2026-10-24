@@ -3,31 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
-<title>অটো তুফান</title>
+<title>বাপের দোয়া</title>
 <meta name="description" content="ঢাকার রাস্তায় ব্যাটারির অটো নিয়ে তুফান চালান। ধাক্কা দেন, ক্ষতি বাড়ান, বাস-ট্রাক এড়ান, পাবলিকের হাত থেকে পালান।">
 <meta name="theme-color" content="#1b1420">
-<meta name="keywords" content="অটো তুফান, Auto Tufan, ব্যাটারি অটো, ঢাকা, বাংলা গেম, ব্রাউজার গেম, ড্রাইভিং গেম, Bangla game, Dhaka driving game">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="keywords" content="বাপের দোয়া, Baper Doa, ব্যাটারি অটো, ঢাকা, বাংলা গেম, ব্রাউজার গেম, ড্রাইভিং গেম, Bangla game, Dhaka driving game">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://baper-doa.rasel.me/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="og-image.png">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="অটো তুফান">
+<meta property="og:site_name" content="বাপের দোয়া">
 <meta property="og:locale" content="bn_BD">
 <meta property="og:url" content="https://baper-doa.rasel.me/">
-<meta property="og:title" content="অটো তুফান · Auto Tufan, Dhaka">
+<meta property="og:title" content="বাপের দোয়া · Baper Doa, Dhaka">
 <meta property="og:description" content="ব্যাটারির অটো, ব্রেক ঢিলা, লাইসেন্স বাসায়। রাস্তা আজ আপনার। ঢাকার রাস্তায় ধাক্কা দেন, বাস-ট্রাক এড়ান, পাবলিকের হাত থেকে পালান।">
 <meta property="og:image" content="https://baper-doa.rasel.me/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="অটো তুফান — Auto Tufan · Dhaka">
+<meta property="og:image:alt" content="বাপের দোয়া — Baper Doa · Dhaka">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="অটো তুফান · Auto Tufan, Dhaka">
+<meta name="twitter:title" content="বাপের দোয়া · Baper Doa, Dhaka">
 <meta name="twitter:description" content="ব্যাটারির অটো, ব্রেক ঢিলা, লাইসেন্স বাসায়। রাস্তা আজ আপনার। ঢাকার রাস্তায় ধাক্কা দেন, বাস-ট্রাক এড়ান, পাবলিকের হাত থেকে পালান।">
 <meta name="twitter:image" content="https://baper-doa.rasel.me/og-image.png">
-<meta name="twitter:image:alt" content="অটো তুফান — Auto Tufan · Dhaka">
+<meta name="twitter:image:alt" content="বাপের দোয়া — Baper Doa · Dhaka">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"VideoGame","name":"অটো তুফান","alternateName":"Auto Tufan","url":"https://baper-doa.rasel.me/","image":"https://baper-doa.rasel.me/og-image.png","description":"ঢাকার রাস্তায় ব্যাটারির অটো নিয়ে তুফান চালান। ধাক্কা দেন, ক্ষতি বাড়ান, বাস-ট্রাক এড়ান, পাবলিকের হাত থেকে পালান।","inLanguage":"bn","genre":["Driving","Arcade"],"gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"BDT"}}
+{"@context":"https://schema.org","@type":"VideoGame","name":"বাপের দোয়া","alternateName":"Baper Doa","url":"https://baper-doa.rasel.me/","image":"https://baper-doa.rasel.me/og-image.png","description":"ঢাকার রাস্তায় ব্যাটারির অটো নিয়ে তুফান চালান। ধাক্কা দেন, ক্ষতি বাড়ান, বাস-ট্রাক এড়ান, পাবলিকের হাত থেকে পালান।","inLanguage":"bn","genre":["Driving","Arcade"],"gamePlatform":"Web browser","applicationCategory":"Game","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"BDT"}}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -104,16 +107,67 @@ html,body{height:100%;margin:0;background:var(--ink);color:var(--fg);font-family
 #dialogue small{display:block;font-size:12px;color:#7a6a5c;margin-bottom:2px}
 #banner{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);font:700 clamp(28px,6vw,56px)/1.1 var(--display);color:var(--yolk);text-shadow:0 4px 0 #000;text-align:center;pointer-events:none;width:90vw;text-wrap:balance}
 
-/* touch */
-#touch{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;align-items:flex-end;padding:0 16px calc(env(safe-area-inset-bottom,0px) + 16px);pointer-events:none}
-.grp{display:flex;gap:10px;align-items:flex-end}
-.col{display:flex;flex-direction:column;gap:10px;align-items:center}
-.tbtn{pointer-events:auto;touch-action:none;border:2px solid rgba(255,255,255,.18);background:rgba(27,20,32,.6);color:var(--fg);border-radius:18px;font:700 13px var(--body);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:72px;height:72px}
-.tbtn svg{width:30px;height:30px}
-.tbtn.small{width:64px;height:48px;border-radius:14px;font-size:12px}
-.tbtn.on{background:rgba(24,196,176,.45);border-color:var(--teal)}
-#tBoost.on{background:rgba(255,204,41,.4);border-color:var(--yolk)}
-#tBomb.on{background:rgba(255,61,139,.45)}
+/* touch: floating stick on the left, pedal cluster on the right (PUBG-style) */
+html,body{-webkit-touch-callout:none;overscroll-behavior:none}
+#touch{position:absolute;inset:0;pointer-events:none}
+#stickZone{position:absolute;left:0;bottom:0;width:calc(100% - 290px);max-width:55%;height:68%;pointer-events:auto;touch-action:none}
+#stick{position:absolute;left:calc(env(safe-area-inset-left,0px) + 40px);bottom:calc(env(safe-area-inset-bottom,0px) + 34px);width:136px;height:136px;margin:0;border-radius:50%;background:radial-gradient(circle,rgba(27,20,32,.25) 40%,rgba(27,20,32,.55));border:2px solid rgba(255,255,255,.22);transform:translate(0,0);opacity:.75;transition:opacity .15s}
+#stick.on{opacity:1;transition:none}
+#stick::before,#stick::after{content:"";position:absolute;top:50%;width:0;height:0;margin-top:-7px;border:7px solid transparent}
+#stick::before{left:8px;border-right-color:rgba(255,255,255,.45)}
+#stick::after{right:8px;border-left-color:rgba(255,255,255,.45)}
+#knob{position:absolute;left:50%;top:50%;width:62px;height:62px;margin:-31px 0 0 -31px;border-radius:50%;background:rgba(255,246,232,.85);box-shadow:0 3px 10px rgba(0,0,0,.45),inset 0 -4px 0 rgba(0,0,0,.15);will-change:transform}
+#stick.on #knob{background:var(--teal)}
+#stickHint{position:absolute;left:calc(env(safe-area-inset-left,0px) + 40px);width:136px;bottom:calc(env(safe-area-inset-bottom,0px) + 8px);text-align:center;font:600 11px var(--body);color:var(--muted);text-shadow:0 1px 2px #000;pointer-events:none;transition:opacity .4s}
+#pads{position:absolute;right:calc(env(safe-area-inset-right,0px) + 14px);bottom:calc(env(safe-area-inset-bottom,0px) + 14px);width:256px;height:164px;transform-origin:100% 100%}
+.tbtn{position:absolute;pointer-events:auto;touch-action:none;-webkit-touch-callout:none;border:2px solid rgba(255,255,255,.22);background:rgba(27,20,32,.62);color:var(--fg);border-radius:50%;font:700 12px var(--body);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:0;backdrop-filter:blur(3px);box-shadow:0 4px 0 rgba(0,0,0,.35);transition:transform .06s}
+.tbtn svg{width:28px;height:28px}
+.tbtn.on{transform:translateY(3px) scale(.96);box-shadow:0 1px 0 rgba(0,0,0,.35)}
+#tGas{right:0;bottom:0;width:92px;height:120px;border-radius:26px 26px 30px 30px;background:rgba(24,196,176,.35);border-color:rgba(24,196,176,.8);font-size:14px}
+#tGas.on{background:rgba(24,196,176,.7)}
+#tBrake{right:104px;bottom:0;width:84px;height:84px;border-radius:22px;background:rgba(255,74,58,.28);border-color:rgba(255,74,58,.75);font-size:13px}
+#tBrake.on{background:rgba(255,74,58,.6)}
+#tBoost{right:112px;bottom:96px;width:66px;height:66px;background:rgba(255,204,41,.28);border-color:rgba(255,204,41,.85);color:var(--yolk)}
+#tBoost.on{background:rgba(255,204,41,.65);color:#000}
+#tBomb{right:196px;bottom:6px;width:58px;height:58px;border-color:rgba(255,61,139,.85);color:#ffd0e2}
+#tBomb.on{background:rgba(255,61,139,.6)}
+#tBomb.cd{opacity:.45}
+#tBomb .cdNum{font:700 15px/1 var(--display)}
+#tHorn{right:192px;bottom:80px;width:52px;height:52px}
+#tHorn.on{background:rgba(24,196,176,.5)}
+@media (orientation:portrait){
+  #pads{transform:scale(.86)}
+  #stickZone{width:calc(100% - 236px);max-width:none;height:50%}
+  #stick{left:calc(env(safe-area-inset-left,0px) + 22px);bottom:calc(env(safe-area-inset-bottom,0px) + 40px);width:124px;height:124px}
+  #stickHint{left:calc(env(safe-area-inset-left,0px) + 22px);width:124px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px)}
+}
+/* touch HUD: smaller, out of the thumbs' way */
+body.touch #hud{padding-left:calc(env(safe-area-inset-left,0px) + 12px);padding-right:calc(env(safe-area-inset-right,0px) + 12px)}
+body.touch .panel{padding:6px 10px;border-radius:12px}
+body.touch #loss{font-size:26px}
+body.touch #battBox{min-width:118px}
+body.touch #minimap{width:96px;height:96px}
+body.touch #muteBtn{padding:7px 12px}
+body.touch #dialogue{font-size:14px;max-width:min(420px,86vw)}
+body.touch .keys:not(.touch-keys){display:none}
+.keys.touch-keys{display:none}
+body.touch .keys.touch-keys{display:flex}
+@media (orientation:landscape){
+  body.touch #right{display:grid;grid-template-columns:auto auto;align-items:start;justify-items:end;gap:6px}
+  body.touch #battBox{grid-column:1/-1}
+  body.touch #minimap{grid-column:2;grid-row:2/span 3}
+  body.touch #hintBox,body.touch #cond,body.touch #muteBtn{grid-column:1}
+  body.touch #dialogue{bottom:calc(env(safe-area-inset-bottom,0px) + 14px);max-width:max(200px,calc(100vw - 560px))}
+}
+@media (orientation:portrait){
+  body.touch #alerts{top:calc(env(safe-area-inset-top,0px) + 270px)}
+  body.touch #dialogue{bottom:calc(env(safe-area-inset-bottom,0px) + 250px)}
+}
+@media (orientation:landscape) and (max-height:430px){
+  body.touch #cond{display:none}
+  body.touch .card{padding:18px 18px 16px}
+  body.touch .title{font-size:52px}
+}
 
 /* menu */
 .overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto;background:radial-gradient(ellipse at 50% 30%,rgba(27,20,32,.35),rgba(27,20,32,.88))}
@@ -227,29 +281,20 @@ figcaption{font-size:11.5px;margin-top:4px;color:#5d4f42}
   </div>
 
   <div id="touch" hidden>
-    <div class="grp">
-      <div class="col">
-        <button class="tbtn small" id="tHorn" type="button">হর্ন</button>
-        <button class="tbtn" id="tLeft" type="button" aria-label="বামে"><svg viewBox="0 0 24 24"><path d="M15 5 8 12l7 7" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      </div>
-      <div class="col">
-        <button class="tbtn small" id="tBomb" type="button">বোমা</button>
-        <button class="tbtn" id="tRight" type="button" aria-label="ডানে"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      </div>
-    </div>
-    <div class="grp">
+    <div id="stickZone"><div id="stick" aria-hidden="true"><div id="knob"></div></div><div id="stickHint">টেনে ঘোরান · উপরে চালান</div></div>
+    <div id="pads">
+      <button class="tbtn" id="tHorn" type="button" aria-label="হর্ন"><svg viewBox="0 0 24 24"><path d="M3 10v4h3l5 4V6L6 10zm12.5-2.5a6 6 0 0 1 0 9M18.5 5a9.5 9.5 0 0 1 0 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="tbtn" id="tBomb" type="button" aria-label="শব্দবোমা"><span id="tBombIc">💥</span><span>বোমা</span></button>
       <button class="tbtn" id="tBoost" type="button"><svg viewBox="0 0 24 24"><path d="M13.5 2 4.5 13.5h6L9 22l9.5-12h-6z" fill="currentColor"/></svg>টান</button>
-      <div class="col">
-        <button class="tbtn" id="tGas" type="button"><svg viewBox="0 0 24 24"><path d="m5 15 7-7 7 7" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>চালান</button>
-        <button class="tbtn" id="tBrake" type="button"><svg viewBox="0 0 24 24"><path d="m5 9 7 7 7-7" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>ব্রেক</button>
-      </div>
+      <button class="tbtn" id="tBrake" type="button"><svg viewBox="0 0 24 24"><path d="m5 9 7 7 7-7" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>ব্রেক</button>
+      <button class="tbtn" id="tGas" type="button"><svg viewBox="0 0 24 24"><path d="m5 15 7-7 7 7" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>চালান</button>
     </div>
   </div>
 
   <div id="menu" class="overlay">
     <div class="card">
-      <h1 class="title">অটো তুফান</h1>
-      <div class="title-en">Auto Tufan · Dhaka</div>
+      <h1 class="title">বাপের দোয়া</h1>
+      <div class="title-en">Baper Doa · Dhaka</div>
       <p class="tagline">ব্যাটারির অটো, ব্রেক ঢিলা, লাইসেন্স বাসায়। রাস্তা আজ আপনার।</p>
       <ul class="rules">
         <li><span class="ic" style="background:var(--pink)">৳</span><span><b>ধাক্কা দেন</b>প্রাইভেটকার, বাইক, রিকশা, চায়ের দোকান। একটানা ধাক্কায় গুণিতক বাড়ে, উল্টো পথে দ্বিগুণ।</span></li>
@@ -259,6 +304,7 @@ figcaption{font-size:11.5px;margin-top:4px;color:#5d4f42}
         <li><span class="ic" style="background:#ff8ec0">☕</span><span><b>মামলা বেশি হলে</b>গোলাপি দাগে মামার হাতে চা-পানি দেন। মামলা খালাস, পাবলিক ঠান্ডা।</span></li>
       </ul>
       <div class="keys"><span><kbd>W</kbd><kbd>↑</kbd> চালান</span><span><kbd>S</kbd><kbd>↓</kbd> ব্রেক/পেছনে</span><span><kbd>A</kbd><kbd>D</kbd> ঘোরান</span><span><kbd>Shift</kbd><kbd>Space</kbd> টান</span><span><kbd>H</kbd> হর্ন</span><span><kbd>B</kbd> শব্দবোমা</span><span><kbd>M</kbd> শব্দ</span></div>
+      <div class="keys touch-keys"><span>🕹️ বামে আঙুল টেনে ঘোরান (উপরে ঠেললে চালান, নিচে ব্রেক)</span><span>ডানে: চালান · ব্রেক · টান · বোমা · হর্ন</span></div>
       <div class="pick" id="pick" role="radiogroup" aria-label="কোন বাহন নিয়ে নামবেন"></div>
       <div class="play-row">
         <button class="cta" id="playBtn" type="button" disabled>রাস্তায় নামেন</button>
@@ -321,7 +367,7 @@ const METRO_ROW = 4;
 /* ================= renderer ================= */
 const canvas = $('c');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
-renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+renderer.setPixelRatio(Math.min(devicePixelRatio, matchMedia('(pointer:coarse)').matches ? 1.5 : 1.75));
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -2047,22 +2093,56 @@ addEventListener('keydown', e => {
 });
 addEventListener('keyup', e => { keys[e.code] = false; });
 addEventListener('blur', () => { for (const k in keys) keys[k] = false; for (const k in touchState) touchState[k] = false; });
+const buzz = ms => { try { navigator.vibrate && navigator.vibrate(ms); } catch {} };
 function bindTouch(id, name, tap) {
   const el = $(id);
-  const on = e => { e.preventDefault(); touchState[name] = true; el.classList.add('on'); Sound.init(); if (tap) tap(); };
+  const on = e => { e.preventDefault(); try { el.setPointerCapture(e.pointerId); } catch {} touchState[name] = true; el.classList.add('on'); Sound.init(); buzz(8); if (tap) tap(); };
   const off = () => { touchState[name] = false; el.classList.remove('on'); };
-  el.addEventListener('pointerdown', on); el.addEventListener('pointerup', off); el.addEventListener('pointercancel', off); el.addEventListener('pointerleave', off);
+  el.addEventListener('pointerdown', on); el.addEventListener('pointerup', off); el.addEventListener('pointercancel', off); el.addEventListener('lostpointercapture', off);
   el.addEventListener('contextmenu', e => e.preventDefault());
 }
-bindTouch('tLeft', 'left'); bindTouch('tRight', 'right'); bindTouch('tGas', 'gas'); bindTouch('tBrake', 'brake'); bindTouch('tBoost', 'boost');
+bindTouch('tGas', 'gas'); bindTouch('tBrake', 'brake'); bindTouch('tBoost', 'boost');
 bindTouch('tHorn', 'horn', () => horn()); bindTouch('tBomb', 'bomb', () => soundBomb());
-const isTouch = matchMedia('(pointer:coarse)').matches;
+// floating joystick: appears under the thumb anywhere in the left zone; x steers (analog), push up = gas, pull down = brake
+const stick = { id: null, ox: 0, oy: 0, x: 0, y: 0, used: false };
+{
+  const zone = $('stickZone'), base = $('stick'), knob = $('knob'), RAD = 56;
+  const move = e => {
+    let dx = e.clientX - stick.ox, dy = e.clientY - stick.oy; const d = Math.hypot(dx, dy);
+    if (d > RAD) { dx *= RAD / d; dy *= RAD / d; }
+    stick.x = dx / RAD; stick.y = dy / RAD;
+    knob.style.transform = `translate(${dx}px,${dy}px)`;
+  };
+  const end = e => {
+    if (e.pointerId !== stick.id) return;
+    stick.id = null; stick.x = stick.y = 0; knob.style.transform = ''; base.style.transform = ''; base.classList.remove('on');
+  };
+  zone.addEventListener('pointerdown', e => {
+    if (stick.id !== null) return;
+    e.preventDefault(); Sound.init();
+    try { zone.setPointerCapture(e.pointerId); } catch {}
+    stick.id = e.pointerId; stick.ox = e.clientX; stick.oy = e.clientY;
+    const r = base.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2; // base is at rest here
+    base.style.transform = `translate(${stick.ox - cx}px,${stick.oy - cy}px)`; base.classList.add('on');
+    if (!stick.used) { stick.used = true; $('stickHint').style.opacity = 0; }
+    move(e);
+  });
+  zone.addEventListener('pointermove', e => { if (e.pointerId === stick.id) move(e); });
+  zone.addEventListener('pointerup', end); zone.addEventListener('pointercancel', end); zone.addEventListener('lostpointercapture', end);
+  zone.addEventListener('contextmenu', e => e.preventDefault());
+}
+let isTouch = matchMedia('(pointer:coarse)').matches;
+const markTouch = () => { isTouch = true; document.body.classList.add('touch'); if (game.state === 'play') $('touch').hidden = false; };
+if (isTouch) document.body.classList.add('touch');
+addEventListener('touchstart', () => { if (!document.body.classList.contains('touch')) markTouch(); }, { passive: true });
 function input() {
+  const kSteer = ((keys.KeyA || keys.ArrowLeft) ? 1 : 0) - ((keys.KeyD || keys.ArrowRight) ? 1 : 0);
+  // stick: small dead zone, then linear to full lock
+  const sx = Math.abs(stick.x) < .12 ? 0 : -Math.sign(stick.x) * Math.min(1, (Math.abs(stick.x) - .12) / .7);
   return {
-    gas: keys.KeyW || keys.ArrowUp || touchState.gas,
-    brake: keys.KeyS || keys.ArrowDown || touchState.brake,
-    left: keys.KeyA || keys.ArrowLeft || touchState.left,
-    right: keys.KeyD || keys.ArrowRight || touchState.right,
+    gas: keys.KeyW || keys.ArrowUp || touchState.gas || stick.y < -.5,
+    brake: keys.KeyS || keys.ArrowDown || touchState.brake || stick.y > .55,
+    steer: clamp(kSteer + sx, -1, 1),
     boost: keys.ShiftLeft || keys.ShiftRight || keys.Space || touchState.boost
   };
 }
@@ -2321,7 +2401,7 @@ function updatePlayer(dt) {
   else fs -= Math.sign(fs) * Math.min(Math.abs(fs), 5 * dt);
   fs = clamp(fs, -8, 40);
   if (fs > maxF) fs = Math.max(maxF, fs - 20 * dt);
-  const steer = (inp.left ? 1 : 0) - (inp.right ? 1 : 0);
+  const steer = inp.steer;
   const steerAmt = p.alive ? steer * S.steer * clamp(Math.abs(fs) / 7, 0, 1) * Math.sign(fs || 1) * (p.boost ? .8 : 1) : 0;
   p.h += steerAmt * dt;
   lat *= Math.exp(-(ENV.rain ? 2.6 : 6) * dt);
@@ -2649,7 +2729,7 @@ function updateHud(mob) {
   const bp = player.battery; $('battPct').textContent = (game.wasCharging ? '⚡ ' : '') + bnNum(bp) + '%';
   const bi = $('battBar').firstElementChild; bi.style.width = bp + '%'; bi.style.background = bp < 25 ? 'var(--blood)' : bp < 50 ? 'var(--yolk)' : 'var(--teal)';
   $('bombBar').firstElementChild.style.width = (100 - player.bombCD / 14 * 100) + '%';
-  $('bombTxt').textContent = player.bombCD > 0 ? bnNum(Math.ceil(player.bombCD)) + ' সে.' : 'রেডি (B)';
+  $('bombTxt').textContent = player.bombCD > 0 ? bnNum(Math.ceil(player.bombCD)) + ' সে.' : (isTouch ? 'রেডি' : 'রেডি (B)');
   $('mobWarn').hidden = mob.near === 0; $('mobCount').textContent = bnNum(mob.angry) + ' জন';
   $('wrongWay').hidden = !wrongWay;
   const hb = $('hintBox');
@@ -2786,9 +2866,15 @@ function startGame() {
   vipTimer = 35; vipCar = null; player.fly = null;
   placeBribe();
   $('menu').hidden = true; $('paper').hidden = true; $('hud').hidden = false; $('touch').hidden = !isTouch;
+  if (isTouch) goFullscreen();
   updateCamera(0, true);
   banner('রাস্তা আজ আপনার!', 1.6);
   setTimeout(() => game.state === 'play' && say(condLabel(), wxIntro(), 3.5), 1700);
+}
+function goFullscreen() {
+  const d = document.documentElement, req = d.requestFullscreen || d.webkitRequestFullscreen;
+  if (!req || document.fullscreenElement || document.webkitFullscreenElement) return;
+  try { Promise.resolve(req.call(d, { navigationUI: 'hide' })).then(() => screen.orientation && screen.orientation.lock && screen.orientation.lock('portrait')).catch(() => {}); } catch {}
 }
 function toggleMute() { Sound.setMuted(!Sound.muted); $('muteBtn').textContent = Sound.muted ? 'শব্দ: বন্ধ' : 'শব্দ: চালু'; }
 $('muteBtn').textContent = Sound.muted ? 'শব্দ: বন্ধ' : 'শব্দ: চালু';
@@ -2842,7 +2928,7 @@ function frame(now) {
     if (game.state !== 'over') updateCamera(rdt);
     Sound.engine(player.fs, player.boost, game.state === 'play');
     hudT -= rdt; if (hudT <= 0 && game.state === 'play') { hudT = .08; updateHud(mob); }
-    if (isTouch) $('tBomb').style.opacity = player.bombCD > 0 ? .45 : 1;
+    if (isTouch) { const cd = Math.ceil(player.bombCD), tb = $('tBomb'); if (tb.dataset.cd !== String(cd)) { tb.dataset.cd = cd; tb.classList.toggle('cd', cd > 0); $('tBombIc').innerHTML = cd > 0 ? `<span class="cdNum">${bnNum(cd)}</span>` : '💥'; } }
   } else {
     menuAng += rdt * .05;
     const cx = MAX / 2, cz = MAX / 2;

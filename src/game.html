@@ -1543,9 +1543,9 @@ class Vehicle {
     const s = this.spec, fx = Math.sin(this.h), fz = Math.cos(this.h);
     let desired = s.speed * this.persona;
     const [lx, lz] = leftOf(this.dx, this.dz);
-    // make way: if the player is in our path, swerve to the side away from them
+    // make way: if the player is in our path, swerve to the side away from them (buses and trucks never give way)
     let want = 0;
-    if (player.alive && this.type !== 'vip') {
+    if (player.alive && this.type !== 'vip' && !s.lethal) {
       const rx = player.x - this.x, rz = player.z - this.z, along = rx * fx + rz * fz;
       if (along > 0 && along < s.len / 2 + 22) {
         const side = rx * lx + rz * lz;
@@ -1553,7 +1553,7 @@ class Vehicle {
       }
     }
     if (want) { this.dodgeHold = .9; this.dodgeDir = want; } else if ((this.dodgeHold -= dt) <= 0) this.dodgeDir = 0;
-    const off = LANE + this.lo, amt = (s.lethal ? 2 : 3.8) * (this.dodgeDir || 0);
+    const off = LANE + this.lo, amt = 3.8 * (this.dodgeDir || 0);
     const dodgeT = clamp(amt, -(HALF - 1.3) - off, (HALF - 1.3) - off);
     const dd = (dodgeT - (this.dodge || 0)) * Math.min(1, dt * 2.6);
     this.dodge = (this.dodge || 0) + dd; this.x += lx * dd; this.z += lz * dd;

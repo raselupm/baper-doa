@@ -79,6 +79,7 @@ html,body{height:100%;margin:0;background:var(--ink);color:var(--fg);font-family
 .bar{height:10px;border-radius:6px;background:rgba(255,255,255,.12);overflow:hidden;margin-top:4px}
 .bar i{display:block;height:100%;width:100%;background:var(--teal);border-radius:6px;transition:width .2s,background .2s}
 #bombBar i{background:var(--pink)}
+#jumpBar i{background:#7fd4ff}
 #battBar.charging i{background:repeating-linear-gradient(45deg,var(--yolk) 0 7px,#fff6c2 7px 14px)!important;background-size:20px 20px!important;animation:chg .45s linear infinite}
 #battBar.charging{box-shadow:0 0 12px 2px rgba(255,204,41,.7)}
 @keyframes chg{to{background-position:20px 0}}
@@ -127,7 +128,10 @@ html,body{-webkit-touch-callout:none;overscroll-behavior:none}
 #tBomb{left:98px;bottom:0;width:64px;height:64px;border-color:rgba(255,61,139,.85);color:#ffd0e2}
 #tBomb.on{background:rgba(255,61,139,.6)}
 #tBomb.cd{opacity:.45}
-#tBomb .cdNum{font:700 15px/1 var(--display)}
+#tBomb .cdNum,#tJump .cdNum{font:700 15px/1 var(--display)}
+#tJump{left:92px;bottom:80px;width:62px;height:62px;border-color:rgba(127,212,255,.9);color:#cdeeff}
+#tJump.on{background:rgba(127,212,255,.55);color:#000}
+#tJump.cd{opacity:.45}
 #tHorn{left:14px;bottom:100px;width:56px;height:56px}
 #tHorn.on{background:rgba(24,196,176,.5)}
 @media (orientation:portrait){
@@ -285,6 +289,8 @@ figcaption{font-size:11.5px;margin-top:4px;color:#5d4f42}
           <div class="bar" id="battBar"><i></i></div>
           <div class="sub"><span>শব্দবোমা</span><span id="bombTxt">রেডি</span></div>
           <div class="bar" id="bombBar"><i></i></div>
+          <div class="sub"><span>এয়ার জাম্প</span><span id="jumpTxt">রেডি</span></div>
+          <div class="bar" id="jumpBar"><i></i></div>
         </div>
         <canvas id="minimap" width="280" height="280" aria-label="আশেপাশের ম্যাপ"></canvas>
         <div id="hintBox" hidden><svg id="hintArrow" viewBox="-9 -12 18 22" aria-hidden="true"><path d="M0 -10 L7 8 L0 4 L-7 8 Z"/></svg><span id="hintText"></span></div>
@@ -304,6 +310,7 @@ figcaption{font-size:11.5px;margin-top:4px;color:#5d4f42}
     <div id="pads">
       <button class="tbtn" id="tHorn" type="button" aria-label="হর্ন"><svg viewBox="0 0 24 24"><path d="M3 10v4h3l5 4V6L6 10zm12.5-2.5a6 6 0 0 1 0 9M18.5 5a9.5 9.5 0 0 1 0 14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <button class="tbtn" id="tBomb" type="button" aria-label="শব্দবোমা"><span id="tBombIc">💥</span><span>বোমা</span></button>
+      <button class="tbtn" id="tJump" type="button" aria-label="এয়ার জাম্প"><span id="tJumpIc"><svg viewBox="0 0 24 24"><path d="M12 3l6 7h-4v5h-4v-5H6z" fill="currentColor"/><path d="M7 18.5h2M11 20.5h2M15 18.5h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>লাফ</button>
       <button class="tbtn" id="tBoost" type="button"><svg viewBox="0 0 24 24"><path d="M13.5 2 4.5 13.5h6L9 22l9.5-12h-6z" fill="currentColor"/></svg>টান</button>
     </div>
   </div>
@@ -316,12 +323,13 @@ figcaption{font-size:11.5px;margin-top:4px;color:#5d4f42}
       <ul class="rules">
         <li><span class="ic" style="background:var(--pink)">৳</span><span><b>ধাক্কা দেন</b>প্রাইভেটকার, বাইক, রিকশা, চায়ের দোকান। একটানা ধাক্কায় গুণিতক বাড়ে, উল্টো পথে দ্বিগুণ।</span></li>
         <li><span class="ic" style="background:var(--blood)">!</span><span><b>বাস-ট্রাক ছুঁলেই শেষ</b>নিচে লাল আলো মানে দূরে থাকেন।</span></li>
+        <li><span class="ic" style="background:#7fd4ff">⇑</span><span><b>এয়ার জাম্প</b>নতুন টেসলার মতো বাতাসের ধাক্কায় লাফ। ঠিক সময়ে দিলে বাস-ট্রাকের উপর দিয়ে পার।</span></li>
         <li><span class="ic" style="background:#ff9a3a">✊</span><span><b>পাবলিক দৌড়াবে</b>থেমে থাকলে ধরে ফেলবে। গতি রাখেন।</span></li>
         <li><span class="ic" style="background:var(--yolk)">⚡</span><span><b>চার্জ কমলে</b>হলুদ দাগে থামেন। লাইন সরাসরি খাম্বা থেকে।</span></li>
         <li><span class="ic" style="background:#ff8ec0">☕</span><span><b>মামলা বেশি হলে</b>গোলাপি দাগে মামার হাতে চা-পানি দেন। মামলা খালাস, পাবলিক ঠান্ডা।</span></li>
       </ul>
-      <div class="keys"><span><kbd>W</kbd><kbd>↑</kbd> চালান</span><span><kbd>S</kbd><kbd>↓</kbd> ব্রেক/পেছনে</span><span><kbd>A</kbd><kbd>D</kbd> ঘোরান</span><span><kbd>Shift</kbd><kbd>Space</kbd> টান</span><span><kbd>H</kbd> হর্ন</span><span><kbd>B</kbd> শব্দবোমা</span><span><kbd>M</kbd> শব্দ</span></div>
-      <div class="keys touch-keys"><span>🕹️ ডান পাশে আঙুল রেখে টানুন: উপরে চালান, নিচে ব্রেক, পাশে ঘোরান</span><span>বাম পাশে: টান · বোমা · হর্ন</span></div>
+      <div class="keys"><span><kbd>W</kbd><kbd>↑</kbd> চালান</span><span><kbd>S</kbd><kbd>↓</kbd> ব্রেক/পেছনে</span><span><kbd>A</kbd><kbd>D</kbd> ঘোরান</span><span><kbd>Shift</kbd><kbd>Space</kbd> টান</span><span><kbd>H</kbd> হর্ন</span><span><kbd>J</kbd> এয়ার জাম্প</span><span><kbd>B</kbd> শব্দবোমা</span><span><kbd>M</kbd> শব্দ</span></div>
+      <div class="keys touch-keys"><span>🕹️ ডান পাশে আঙুল রেখে টানুন: উপরে চালান, নিচে ব্রেক, পাশে ঘোরান</span><span>বাম পাশে: টান · লাফ · বোমা · হর্ন</span></div>
       <div class="pick" id="pick" role="radiogroup" aria-label="কোন বাহন নিয়ে নামবেন"></div>
       <div class="play-row">
         <button class="cta" id="playBtn" type="button" disabled>রাস্তায় নামেন</button>
@@ -783,6 +791,17 @@ const Sound = {
   coin() { this.tone(988, .08, 'square', .06); this.tone(1319, .18, 'square', .06, 0, 0, .07); },
   boom() { this.noise(1.2, .9, 400); this.tone(60, .9, 'sine', .5, -30); },
   thud(v = .3) { this.noise(.15, v, 300); },
+  // compressed-air thruster: hiss sweeping down, valve thump, rising whistle
+  airJump() {
+    if (!this.ctx) return; const t = this.ctx.currentTime;
+    const s = this.ctx.createBufferSource(); s.buffer = this.noiseBuf;
+    const f = this.ctx.createBiquadFilter(); f.type = 'bandpass'; f.Q.value = 1.1;
+    f.frequency.setValueAtTime(6000, t); f.frequency.exponentialRampToValueAtTime(600, t + .75);
+    const g = this.ctx.createGain(); g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(1, t + .025); g.gain.exponentialRampToValueAtTime(.001, t + .85);
+    s.connect(f); f.connect(g); g.connect(this.master); s.start(t, Math.random()); s.stop(t + .9);
+    this.tone(75, .35, 'sine', .4, -30); this.tone(700, .55, 'triangle', .05, 1500);
+  },
+  land(k = 1) { this.noise(.28, .4 * k, 450); this.tone(52, .22, 'sine', .35 * k, -14); },
   slap() { this.noise(.07, .35, 2500); }
 };
 
@@ -2065,7 +2084,7 @@ function resetPlayer() {
   const i = randi(0, N), j = randi(0, N), [dx, dz] = chooseDir(i, j, 0, 0);
   const a = laneAt(i, j, dx, dz), b = laneAt(i + dx, j + dz, dx, dz), u = rand(.3, .6);
   const start = { x: lerp(a.x, b.x, u), z: lerp(a.z, b.z, u) };
-  Object.assign(player, { x: start.x, z: start.z, y: 0, h: Math.atan2(dx, dz), vx: 0, vz: 0, fs: 0, alive: true, battery: 100, boost: false, catchT: 0, roll: 0, pitch: 0, wallCD: 0, bombCD: 0, hornCD: 0 });
+  Object.assign(player, { x: start.x, z: start.z, y: 0, h: Math.atan2(dx, dz), vx: 0, vz: 0, fs: 0, alive: true, battery: 100, boost: false, catchT: 0, roll: 0, pitch: 0, wallCD: 0, bombCD: 0, hornCD: 0, jumpCD: 0, jumpY: 0, jumpV: 0, gy: 0 });
   auto.rotation.set(0, 0, 0); auto.userData.body.rotation.set(0, 0, 0); auto.visible = true; auto.userData.paint.emissive.setHex(0);
   auto.userData.drv.visible = true; auto.userData.roof.visible = true;
 }
@@ -2104,6 +2123,7 @@ addEventListener('keydown', e => {
   if (game.state === 'play') {
     if (e.code === 'KeyH') horn();
     if (e.code === 'KeyB' || e.code === 'KeyE') soundBomb();
+    if (e.code === 'KeyJ') jump();
   }
   if (e.code === 'KeyM') toggleMute();
   if ((e.code === 'Enter') && (game.state === 'menu' || game.state === 'over') && !$('playBtn').disabled) startGame();
@@ -2119,7 +2139,7 @@ function bindTouch(id, name, tap) {
   el.addEventListener('contextmenu', e => e.preventDefault());
 }
 bindTouch('tBoost', 'boost');
-bindTouch('tHorn', 'horn', () => horn()); bindTouch('tBomb', 'bomb', () => soundBomb());
+bindTouch('tHorn', 'horn', () => horn()); bindTouch('tBomb', 'bomb', () => soundBomb()); bindTouch('tJump', 'jump', () => jump());
 // floating joystick: appears under the thumb anywhere in the right zone; x steers (analog), push up = gas, pull down = brake
 const stick = { id: null, ox: 0, oy: 0, x: 0, y: 0, used: false };
 {
@@ -2249,6 +2269,15 @@ function horn() {
   if (auto.userData.type === 'rick') { Sound.ambientHorn('rickshaw', .14, 0); Sound.ambientHorn('rickshaw', .12, 0); floater(player.x, 3.2, player.z, 'ক্রিং ক্রিং!', 'cool'); }
   else { Sound.horn(auto.userData.type === 'bike' ? 1.5 : 1); floater(player.x, 3.2, player.z, 'পিপ পিপ!', 'cool'); }
   for (const p of peds) if ((p.state === 'walk' || p.state === 'idle') && Math.hypot(p.x - player.x, p.z - player.z) < 14) { if (p.state === 'idle') p.calm(nearestPerim(p.x, p.z)); p.dir *= -1; p.spd = 3.2; setTimeout(() => p.spd = rand(1.1, 1.8), 1500); }
+}
+const JUMP_CD = 6, JUMP_V = 15, JUMP_G = 24;
+function jump() {
+  const p = player;
+  if (game.state !== 'play' || !p.alive || p.jumpCD > 0 || p.jumpY > 0) return;
+  p.jumpCD = JUMP_CD; p.jumpV = JUMP_V; p.jumpY = .01; p.jumpOver = new Set(); p.battery = Math.max(0, p.battery - 2);
+  Sound.airJump(); game.shake = .35; buzz(25);
+  burst(p.x, .3, p.z, 18, [0xffffff, 0xbfe9ff, 0x7fd4ff], 7, true);
+  floater(p.x, 3.4, p.z, 'ফুউউশ!', 'cool');
 }
 function soundBomb() {
   if (player.bombCD > 0 || !player.alive) return;
@@ -2442,9 +2471,19 @@ function updatePlayer(dt) {
       const vn = p.vx * nx + p.vz * nz; if (vn < 0) { p.vx -= 1.4 * vn * nx; p.vz -= 1.4 * vn * nz; if (vn < -8) { Sound.thud(); game.shake = .4; } }
     }
   }
-  p.y = lerp(p.y, onSidewalk(p.x, p.z) ? .25 : 0, .3);
+  if (p.jumpY > 0) {
+    p.jumpV -= JUMP_G * dt; p.jumpY += p.jumpV * dt;
+    if (p.jumpV > 3 && Math.random() < .6) burst(p.x, p.gy + p.jumpY, p.z, 1, [0xffffff, 0xbfe9ff], 2.5, true); // air jets
+    if (p.jumpY <= 0) {
+      const k = clamp(-p.jumpV / 14, .4, 1.2); p.jumpY = 0; p.jumpV = 0;
+      Sound.land(k); game.shake = Math.max(game.shake, .4 * k); p.pitch = .1; buzz(30);
+      burst(p.x, .2, p.z, 10, [0xd9c7a8, 0xbbbbbb], 5);
+    }
+  }
+  p.gy = lerp(p.gy || 0, onSidewalk(p.x, p.z) ? .25 : 0, .3);
+  p.y = p.gy + p.jumpY;
   const ud = auto.userData;
-  p.roll = lerp(p.roll, -steerAmt * fs * .012, .15); p.pitch = lerp(p.pitch, (gas ? -.04 : 0) + (inp.brake ? .05 : 0), .1);
+  p.roll = lerp(p.roll, -steerAmt * fs * .012, .15); p.pitch = lerp(p.pitch, p.jumpY > 0 ? (p.jumpV > 0 ? -.14 : .08) : (gas ? -.04 : 0) + (inp.brake ? .05 : 0), .1);
   if (auto.userData.type === 'bike') { auto.rotation.z = clamp(p.roll * 1.4, -.45, .45); ud.body.rotation.x = p.pitch * .5; } else { ud.body.rotation.z = p.roll; ud.body.rotation.x = p.pitch; }
   for (const w of ud.wheels) w.rotation.x += fs * dt / .37;
   ud.wheels[0].rotation.y = steer * .4;
@@ -2472,6 +2511,10 @@ function collideVehicles() {
     const ex = s.w / 2 + pr, ez = s.len / 2 + pr;
     if (Math.abs(lx) > ex || Math.abs(lz) > ez) continue;
     if (v.state === 'wreck') continue; // broken vehicles are not obstacles
+    if (p.jumpY > s.h - .4) { // sailing over the roof
+      if (s.lethal && !p.jumpOver.has(v)) { p.jumpOver.add(v); floater(v.x, s.h + 1.5, v.z, s.name + 'ের উপর দিয়ে!', 'big'); Sound.coin(); }
+      continue;
+    }
     if (s.lethal && v.state === 'drive') { die(v.type, v); return; }
     const px = ex - Math.abs(lx), pz = ez - Math.abs(lz);
     let nx, nz, depth;
@@ -2504,7 +2547,7 @@ function collideProps(dt) {
       if (Math.abs(dx) > 4 || Math.abs(dz) > 4) continue;
       const d = Math.hypot(dx, dz);
       const rr = q.r + PS().pr - .05;
-      if (d < rr) {
+      if (d < rr && player.jumpY < 1.6) {
         const sp = Math.hypot(player.vx, player.vz);
         if (sp > 6 && player.alive) { breakProp(q, player.vx + dx, player.vz + dz); player.vx *= .75; player.vz *= .75; game.shake = .5; }
         else { const n = (rr - d); player.x -= dx / d * n; player.z -= dz / d * n; }
@@ -2535,8 +2578,8 @@ function updatePeds(dt) {
     const d = Math.hypot(dx, dz);
     if (p.state === 'angry') { angry++; if (d < 25) near++; }
     // anyone angry standing right around the vehicle has their hands on it
-    if (p.state === 'angry' && p.role !== 'filmer' && d < PS().pr + 1.6 && sp <= 7 && player.alive) nCatch++;
-    if (d < PS().pr + .3 && player.alive) {
+    if (p.state === 'angry' && p.role !== 'filmer' && d < PS().pr + 1.6 && sp <= 7 && player.alive && player.jumpY < .5) nCatch++;
+    if (d < PS().pr + .3 && player.alive && player.jumpY < 1.4) {
       if (sp > 7) {
         p.knock(player.vx * .8 + dx * 2, player.vz * .8 + dz * 2);
         addLoss(rand(3000, 9000), p.x, p.z, 'পথচারী');
@@ -2748,6 +2791,8 @@ function updateHud(mob) {
   const bi = $('battBar').firstElementChild; bi.style.width = bp + '%'; bi.style.background = bp < 25 ? 'var(--blood)' : bp < 50 ? 'var(--yolk)' : 'var(--teal)';
   $('bombBar').firstElementChild.style.width = (100 - player.bombCD / 14 * 100) + '%';
   $('bombTxt').textContent = player.bombCD > 0 ? bnNum(Math.ceil(player.bombCD)) + ' সে.' : (isTouch ? 'রেডি' : 'রেডি (B)');
+  $('jumpBar').firstElementChild.style.width = (100 - player.jumpCD / JUMP_CD * 100) + '%';
+  $('jumpTxt').textContent = player.jumpCD > 0 ? bnNum(Math.ceil(player.jumpCD)) + ' সে.' : (isTouch ? 'রেডি' : 'রেডি (J)');
   $('mobWarn').hidden = mob.near === 0; $('mobCount').textContent = bnNum(mob.angry) + ' জন';
   $('wrongWay').hidden = !wrongWay;
   const hb = $('hintBox');
@@ -2766,7 +2811,7 @@ function updateHud(mob) {
 /* ================= death & newspaper ================= */
 function die(cause, v) {
   if (!player.alive) return;
-  player.alive = false; game.cause = cause; game.state = 'dying'; game.dieT = 0; game.wasCharging = false; chargeFx(null, 0);
+  player.alive = false; player.jumpY = player.jumpV = 0; game.cause = cause; game.state = 'dying'; game.dieT = 0; game.wasCharging = false; chargeFx(null, 0);
   Sound.engine(0, false, false); game.shake = 1.5;
   $('vignette').classList.remove('danger');
   if (cause === 'bus' || cause === 'truck') {
@@ -2920,6 +2965,12 @@ function renderPickInto(id, pre) {
 renderPick();
 function showBest() { $('menuBest').innerHTML = game.best > 0 ? `সর্বোচ্চ ক্ষতি: <b>${tk(game.best)}</b>` : ''; }
 
+// touch buttons with a cooldown show the seconds left in place of their icon
+const JUMP_ICON = $('tJumpIc').innerHTML;
+function cdButton(id, icId, t, icon) {
+  const cd = Math.ceil(t), b = $(id); if (b.dataset.cd === String(cd)) return;
+  b.dataset.cd = cd; b.classList.toggle('cd', cd > 0); $(icId).innerHTML = cd > 0 ? `<span class="cdNum">${bnNum(cd)}</span>` : icon;
+}
 let last = performance.now(), menuAng = 0;
 function frame(now) {
   requestAnimationFrame(frame);
@@ -2940,13 +2991,13 @@ function frame(now) {
     const mob = updatePeds(dt);
     updateSandals(dt); updateDebris(dt);
     if (game.state === 'play') { updatePads(dt); updateVip(dt); }
-    player.bombCD = Math.max(0, player.bombCD - dt); player.hornCD -= dt;
+    player.bombCD = Math.max(0, player.bombCD - dt); player.jumpCD = Math.max(0, player.jumpCD - dt); player.hornCD -= dt;
     if (player.battery < 20 && player.battery > 0 && !game.lowSaid) { game.lowSaid = true; sayFrom('low'); }
     if (player.battery > 40) game.lowSaid = false;
     if (game.state !== 'over') updateCamera(rdt);
     Sound.engine(player.fs, player.boost, game.state === 'play');
     hudT -= rdt; if (hudT <= 0 && game.state === 'play') { hudT = .08; updateHud(mob); }
-    if (isTouch) { const cd = Math.ceil(player.bombCD), tb = $('tBomb'); if (tb.dataset.cd !== String(cd)) { tb.dataset.cd = cd; tb.classList.toggle('cd', cd > 0); $('tBombIc').innerHTML = cd > 0 ? `<span class="cdNum">${bnNum(cd)}</span>` : '💥'; } }
+    if (isTouch) { cdButton('tBomb', 'tBombIc', player.bombCD, '💥'); cdButton('tJump', 'tJumpIc', player.jumpCD, JUMP_ICON); }
   } else {
     menuAng += rdt * .05;
     const cx = MAX / 2, cz = MAX / 2;
